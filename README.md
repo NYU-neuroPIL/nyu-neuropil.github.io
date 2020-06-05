@@ -7,12 +7,7 @@ forked from: https://nicolas-van.github.io/bootstrap-4-github-pages/
 
 To do:
 
-1. Pick a theme and figure out how it works with our setup -- Jenn
-2. Clean up stuff from forked repo -- Billy
-3. add first pass at public pages (see below) -- Ionatan
-4. try to set up homepage arrangement (see layout.pdf, example is
-   [Atlantic](https://www.theatlantic.com/) homepage) -- wait for 1+3
-5. put together publications page, (see
+1. put together publications page, (see
    [example](https://www.dudmanlab.org/html/publications.html)) --
    Billy
    - put together Google form (or similar) asking for: title; one
@@ -21,6 +16,18 @@ To do:
    - work on something that renders Google form output to what we want
    - see if can automate submission of Google form to adding data to
      github repo
+4. Make contact form live -- Jenn
+2. Embed Twitter feed -- waiting for twitter account
+3. Fill in information
+   - Executive council: coming soon
+   - FAQ: Katie, Chloe, etc
+   - resources -- Ionatan
+4. Change color palette -- Jenn
+5. Get photo for background -- Ionatan
+6. get logo -- Katie
+8. remove map at bottom
+9. try and break up into separate html files -- Billy
+7. add directions for editing and updating
 
 # public pages
 
@@ -43,6 +50,14 @@ To do:
       - Incoming: timeline of program, etc  
       - Current
     - Links page with all “relevant” websites to all the program pages
+
+- Resources sections: links NOGN, ScAAN, and other groups students are
+  part of (GSOC)
+  
+# Internal info
+
+ - info about housing (up and down town) and insurance with domestic
+   partners / spouses
 
 
 # Template details
