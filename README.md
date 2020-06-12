@@ -3,8 +3,6 @@
 
 website for NYU neuroPIL
 
-forked from: https://nicolas-van.github.io/bootstrap-4-github-pages/
-
 To do:
 
 1. put together publications page, (see
