@@ -8,12 +8,23 @@ To do:
 1. [ ] put together publications page, (see
    [example](https://www.dudmanlab.org/html/publications.html)) --
    Billy
-   - put together Google form (or similar) asking for: title; one
+   - [X] put together Google form (or similar) asking for: title; one
      sentence summary; summary picture; tags for topics, techniques,
      labs; links (paper, bioRxiv, code/data, reprint)
-   - work on something that renders Google form output to what we want
-   - see if can automate submission of Google form to adding data to
-     github repo
+   - [X] work on something that renders Google form output to what we
+     want -- right now, can save manually as csv then add to repo and
+     push.
+   - [ ] see if can automate submission of Google form to adding data
+     to github repo
+   - [ ] style more like example, adding text, links, etc
+   - [ ] probably allow multiple links?
+   - [ ] add correct tags
+   - [ ] make tagging functionality better
+     - [ ] multi-select
+     - [ ] separate tag containers for lab, technique, topic
+   - [ ] add scrolling
+   - [ ] will we need to sort by timestamp or will it work
+         automatically?
 4. [ ] Make contact form live -- Jenn
 2. [ ] Embed Twitter feed -- waiting for twitter account
 3. [ ] Fill in information
