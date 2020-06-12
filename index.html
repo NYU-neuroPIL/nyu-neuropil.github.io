@@ -64,7 +64,9 @@
 	    // create a new div. right now this copies directly the
 	    // portfolio objects from the template, will want to
 	    // replace with our fancier version later. this uses
-	    // jQuery syntax (that's what all the $ are)
+	    // jQuery syntax (that's what all the $ are). this was
+	    // following https://stackoverflow.com/a/21257613, but I
+	    // bet there's a prettier way to do it
 	    var paper = $("<div class='col-lg-4 col-md-6 filter-app'>")
 		.append($("<div class='portfolio-item'>")
 			.append("<img src='" + paperData['summary picture'] + "' class='img-fluid' alt=''>")
