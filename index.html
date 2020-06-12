@@ -25,6 +25,9 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- jquery -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/js/jquery-csv.js"></script>
   <!-- =======================================================
   * Template Name: Amoeba - v2.0.0
   * Template URL: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/
@@ -35,7 +38,50 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
+  
+  <!-- script to set up the publications -->
+  <script>
+    // window.onload means we wait until the window loads. we do this
+    // so that the #portfolio-container element has been created
+    window.onload = function () {
+	// load the data into a javascript object called `data`. Each
+	// entry (index into like `data[0]`) is a separate paper, with the
+	// data stored in named fields (e.g., `data[0].title`)
+	$.ajax({
+	    // note this grabs data from the github directly, NOT the
+	    // local version. so if you add new data, you'll need to
+	    // push it before it will be reflected, even in your local
+	    // copy
+	    url: "https://raw.githubusercontent.com/NYU-neuroPIL/nyu-neuropil.github.io/master/Publication_collection.csv",
+	    async: false,
+	    success: function (csvd) {
+		data = $.csv.toObjects(csvd);
+	    },
+	    dataType: "text",
+	});
+	// for each element in the data array...
+	data.forEach(function(paperData) {
+	    // create a new div. right now this copies directly the
+	    // portfolio objects from the template, will want to
+	    // replace with our fancier version later. this uses
+	    // jQuery syntax (that's what all the $ are)
+	    var paper = $("<div class='col-lg-4 col-md-6 filter-app'>")
+		.append($("<div class='portfolio-item'>")
+			.append("<img src='" + paperData['summary picture'] + "' class='img-fluid' alt=''>")
+			.append($("<div class='portfolio-info'>")
+				.append("<h3><a href='"+ paperData['summary picture'] + "' data-gall='portfolioGallery' class='venobox' title='" + paperData.title + "'>" + paperData.title + "</a></h3>")
+				.append($("<a href='" + paperData['summary picture'] + "' data-gall='portfolioGallery' class='venobox' title='" + paperData.title + "'>")
+					.append("<i class='icofont-plus'>"))
+			       )
+		       );
+	    // and append to the portfolio container (the '#id' syntax
+	    // means we're grabbing it by id)
+	    $("#portfolio-container").append(paper);
+	})
+    }
+  </script>
+  
+    <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container">
 
@@ -171,7 +217,7 @@
           </div>
         </div>
 
-        <div class="row portfolio-container">
+        <div id="portfolio-container" class="row portfolio-container">
 
           <div class="col-lg-4 col-md-6 filter-app">
             <div class="portfolio-item">
@@ -455,7 +501,7 @@
     </section><!-- End Contact Us Section -->
 
   </main><!-- End #main -->
-
+  
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -475,7 +521,6 @@
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -485,6 +530,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+ 
 </body>
 
 </html>
