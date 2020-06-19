@@ -16,6 +16,15 @@ To do:
      push.
    - [ ] see if can automate submission of Google form to adding data
      to github repo
+     - [X] we now have it automatically populating a Google Sheet
+     - [ ] having trouble changing the sharing parameters (we think we
+           need to change neuropilweb gmail account from managed by
+           council? it's setup as a child account)
+     - [ ] once that's done, set up using
+           [Tabletop](https://github.com/jsoma/tabletop) (or actually
+           PapaParse) and grab data from it in the javascript
+     - [ ] then should be fine (data will not live in Github, but in
+           Google Sheet)
    - [ ] style more like example, adding text, links, etc
    - [ ] probably allow multiple links?
    - [ ] add correct tags
@@ -25,7 +34,7 @@ To do:
    - [ ] add scrolling
    - [ ] will we need to sort by timestamp or will it work
          automatically?
-4. [ ] Make contact form live -- Jenn
+4. [X] Make contact form live -- Jenn
 2. [ ] Embed Twitter feed -- waiting for twitter account
 3. [ ] Fill in information
    - Executive council: coming soon
