@@ -41,7 +41,8 @@ To do:
    - FAQ: Katie, Chloe, etc
    - resources -- Ionatan
 4. [X] Change color palette -- Jenn
-5. [ ] Get photo for background -- Ionatan
+5. [ ] Get photo for background -- Ionatan. should be ~1580 by 860
+       pixels, probably no text
 6. [ ] get logo -- Katie
 8. [X] remove map at bottom
 9. [X] try and break up into separate html files -- Billy -- Actually,
