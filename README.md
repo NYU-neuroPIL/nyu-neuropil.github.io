@@ -17,14 +17,20 @@ To do:
    - [ ] see if can automate submission of Google form to adding data
      to github repo
      - [X] we now have it automatically populating a Google Sheet
-     - [ ] having trouble changing the sharing parameters (we think we
+     - [X] having trouble changing the sharing parameters (we think we
            need to change neuropilweb gmail account from managed by
-           council? it's setup as a child account)
-     - [ ] once that's done, set up using
+           council? it's setup as a child account) -- fixed this by
+           creating a new, non-child account
+     - [X] once that's done, set up using
            [Tabletop](https://github.com/jsoma/tabletop) (or actually
            PapaParse) and grab data from it in the javascript
-     - [ ] then should be fine (data will not live in Github, but in
-           Google Sheet)
+       - [X] following [instructions
+             here](https://github.com/jsoma/tabletop/issues/189) to
+             get around CORS policy error, which required [creating a
+             new
+             project](https://stackoverflow.com/questions/31869154/you-do-not-have-sufficient-permissions-to-view-this-page)
+             in the Google APIs thing (and switching the permissions
+             on the Sheet so that anyone with the link can access)
    - [ ] style more like example, adding text, links, etc
    - [ ] probably allow multiple links?
    - [ ] add correct tags
@@ -80,6 +86,25 @@ To do:
  - info about housing (up and down town) and insurance with domestic
    partners / spouses
 
+# API Key restriction
+
+in order to access the Google Sheet where we store everyone's
+publication information, we need to use an API key from
+Google. Because we're using Github pages, we have no way of making
+that private, so instead we have its settings such that it only honors
+requests from the NeuroPIL website (`nyu-neuropil.github.io`). **This
+means it won't work if you're testing it locally!** In order for it to
+work locally, log in to the `neuropilwebsite` Google account, then go
+to the
+[Credentials](https://console.developers.google.com/apis/credentials/)
+page, click on the `NYU NeuroPIL Publications` API key, and set the
+`Application restrictions` option to `None`. **When you're done,
+remember to re-enable it**, by going to the same place, picking `HTTP
+referrers` instead, and entering `nyu-neuropil.github.io/*` as the
+website.
+
+Note that if we ever change the url of the website, we'll need to do
+this as well.
 
 # Template details
 

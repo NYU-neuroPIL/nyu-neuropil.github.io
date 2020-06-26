@@ -28,6 +28,7 @@
   <!-- jquery -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/js/jquery-csv.js"></script>
+  <script src="assets/js/papaparse.min.js"></script>
   <!-- =======================================================
   * Template Name: Amoeba - v2.0.0
   * Template URL: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/
@@ -49,46 +50,55 @@
   
   <!-- script to set up the publications -->
   <script>
-    // window.onload means we wait until the window loads. we do this
-    // so that the #portfolio-container element has been created
-    window.onload = function () {
+    // load the data into a javascript object called `data`. Each
+    // entry (index into like `data[0]`) is a separate paper, with the
+    // data stored in named fields (e.g., `data[0].Topics` or
+    // `data[0]['Title of publication']`)
+    var data;
+    function init() {
 	// load the data into a javascript object called `data`. Each
 	// entry (index into like `data[0]`) is a separate paper, with the
 	// data stored in named fields (e.g., `data[0].title`)
+	let SHEET_ID = '1vx2aXpdmqUfE0khnhGE1VU7szjj5uOO2zTxIsjSJYcs';
+	let API_KEY = 'AIzaSyDzueIbUHdX6wBHbbW98UqBuWLVMVeQto8';
+	let SHEET_NAME = 'Form responses 1';
 	$.ajax({
-	    // note this grabs data from the github directly, NOT the
-	    // local version. so if you add new data, you'll need to
-	    // push it before it will be reflected, even in your local
-	    // copy
-	    url: "https://raw.githubusercontent.com/NYU-neuroPIL/nyu-neuropil.github.io/master/Publication_collection.csv",
+	    url: `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`,
 	    async: false,
 	    success: function (csvd) {
-		data = $.csv.toObjects(csvd);
+		data = Papa.parse(Papa.unparse(JSON.parse(csvd).values), { header: true }).data;
+		console.log(data)
+		// data = $.csv.toObjects(csvd);
+		// for each element in the data array...
+		data.forEach(function(paperData) {
+		    var title = paperData['Title of publication']
+		    var picture = paperData['Summary picture (~600 x 600 pixels)']
+		    // create a new div. right now this copies directly the
+		    // portfolio objects from the template, will want to
+		    // replace with our fancier version later. this uses
+		    // jQuery syntax (that's what all the $ are). this was
+		    // following https://stackoverflow.com/a/21257613, but I
+		    // bet there's a prettier way to do it
+		    var paper = $("<div class='col-lg-4 col-md-6 filter-app'>")
+		    	.append($("<div class='portfolio-item'>")
+		    		.append("<img src='" + picture + "' class='img-fluid' alt=''>")
+		    		.append($("<div class='portfolio-info'>")
+		    			.append("<h3><a href='"+ picture + "' data-gall='portfolioGallery' class='venobox' title='" + title + "'>" + title + "</a></h3>")
+		    			.append($("<a href='" + picture + "' data-gall='portfolioGallery' class='venobox' title='" + title + "'>")
+		    				.append("<i class='icofont-plus'>"))
+		    		       )
+		    	       );
+		    // and append to the portfolio container (the '#id' syntax
+n		    // means we're grabbing it by id)
+		    $("#portfolio-container").append(paper);
+		})
 	    },
 	    dataType: "text",
 	});
-	// for each element in the data array...
-	data.forEach(function(paperData) {
-	    // create a new div. right now this copies directly the
-	    // portfolio objects from the template, will want to
-	    // replace with our fancier version later. this uses
-	    // jQuery syntax (that's what all the $ are). this was
-	    // following https://stackoverflow.com/a/21257613, but I
-	    // bet there's a prettier way to do it
-	    var paper = $("<div class='col-lg-4 col-md-6 filter-app'>")
-		.append($("<div class='portfolio-item'>")
-			.append("<img src='" + paperData['summary picture'] + "' class='img-fluid' alt=''>")
-			.append($("<div class='portfolio-info'>")
-				.append("<h3><a href='"+ paperData['summary picture'] + "' data-gall='portfolioGallery' class='venobox' title='" + paperData.title + "'>" + paperData.title + "</a></h3>")
-				.append($("<a href='" + paperData['summary picture'] + "' data-gall='portfolioGallery' class='venobox' title='" + paperData.title + "'>")
-					.append("<i class='icofont-plus'>"))
-			       )
-		       );
-	    // and append to the portfolio container (the '#id' syntax
-	    // means we're grabbing it by id)
-	    $("#portfolio-container").append(paper);
-	})
     }
+    // window.onload means we wait until the window loads. we do this
+    // so that the #portfolio-container element has been created
+    window.onload = init
   </script>
   
     <!-- ======= Header ======= -->
@@ -337,8 +347,8 @@
         <ul class="faq-list">
 
           <li>
-            <a data-toggle="collapse" class="" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="icofont-simple-up"></i></a>
-            <div id="faq1" class="collapse show" data-parent=".faq-list">
+            <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="icofont-simple-up"></i></a>
+            <div id="faq1" class="collapse" data-parent=".faq-list">
               <p>
                 Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
               </p>
