@@ -738,8 +738,8 @@ form.wj-contact input[type="text"], form.wj-contact textarea[type="text"] {
     font-family: "Raleway", Helvetica, Arial, sans-serif;
     font-weight: lighter;
     border-style: solid;
-    border-color: #199EB8;
-    outline-color: #199EB8;
+    border-color: #57068c;
+    outline-color: #57068c;
     border-width: 1px;
     border-radius: 3px;
     transition: box-shadow .2s ease;
@@ -761,7 +761,7 @@ form.wj-contact input[type="submit"] {
 }
 
 form.wj-contact input[type="submit"]:hover {
-  background: #23c2e1;
+  background: #57068c;
 }
 
 .contact .contact-about h3 {
@@ -922,7 +922,7 @@ form.wj-contact input[type="submit"]:hover {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #073839;
+  background: #57068c;
   padding: 30px 0;
   color: #fff;
   font-size: 14px;
