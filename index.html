@@ -490,7 +490,12 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
+
       <div class="copyright">
+                            <p>This site was last updated <span id="demo"></span>.</p>  
+    <script>
+    document.getElementById("demo").innerHTML = document.lastModified;
+    </script>
         &copy; Copyright <strong><span>Amoeba</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
