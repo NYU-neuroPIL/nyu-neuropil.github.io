@@ -14,7 +14,7 @@ To do:
    - [X] work on something that renders Google form output to what we
      want -- right now, can save manually as csv then add to repo and
      push.
-   - [ ] see if can automate submission of Google form to adding data
+   - [X] see if can automate submission of Google form to adding data
      to github repo
      - [X] we now have it automatically populating a Google Sheet
      - [X] having trouble changing the sharing parameters (we think we
@@ -31,25 +31,29 @@ To do:
              project](https://stackoverflow.com/questions/31869154/you-do-not-have-sufficient-permissions-to-view-this-page)
              in the Google APIs thing (and switching the permissions
              on the Sheet so that anyone with the link can access)
-   - [ ] style more like example, adding text, links, etc
-   - [ ] probably allow multiple links?
-   - [ ] add correct tags
-   - [ ] make tagging functionality better
-     - [ ] multi-select
-     - [ ] separate tag containers for lab, technique, topic
-   - [ ] add scrolling
-   - [ ] will we need to sort by timestamp or will it work
-         automatically?
+   - [X] get text centered
+   - [X] make link go to paper or preprint
+   - [ ] redo format to use cards, add icons for different links
+   - [ ] longer-term goal: click on card and get a mini-blog post
+   - [ ] tagging:
+      - [ ] add extra tags (labs, techniques)
+      - [ ] allow multi-select (both within and across?)
+   - [ ] put limit on number that are displayed or scroll or something
+   
 4. [X] Make contact form live -- Jenn
-2. [ ] Embed Twitter feed -- waiting for twitter account
-3. [ ] Fill in information
+2. [X] Embed Twitter feed -- waiting for twitter account
+3. [X] Fill in information
    - Executive council: coming soon
    - FAQ: Katie, Chloe, etc
    - resources -- Ionatan
 4. [X] Change color palette -- Jenn
 5. [ ] Get photo for background -- Ionatan. should be ~1580 by 860
        pixels, probably no text
-6. [ ] get logo -- Katie
+6. [ ] put mini logo on top banner
+6. [X] get logo -- Katie
+7. [ ] photo carousel with social photos from Google Drive (replace
+       the charter picture)
+8. [ ] add committee info
 8. [X] remove map at bottom
 9. [X] try and break up into separate html files -- Billy -- Actually,
    this is probably fine as long as we document it and write up

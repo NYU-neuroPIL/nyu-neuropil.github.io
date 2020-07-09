@@ -46,6 +46,31 @@
     #hero:before {
 	background: #6d6d6dCC;
     }
+    .portfolio .portfolio-item {
+	height: 300px;
+	width: 300px;
+	background: #ffffff;
+	align-items: center;
+	justify-content: center;
+    }
+    .portfolio .portfolio-item:hover img {
+	opacity: 0.4;
+    }
+    .portfolio .portfolio-item:hover {
+    	background: #8900e1;
+    }
+    .portfolio .portfolio-item img {
+	height: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    }
+    .portfolio .portfolio-item .portfolio-info {
+	top: unset;
+    }
+    .portfolio .portfolio-item:hover .portfolio-info {
+	top: unset;
+    }
   </style>
 
   <!-- script to set up the publications -->
@@ -82,12 +107,16 @@
 		    // bet there's a prettier way to do it
 		    topics = paperData['Topics'].replace(/ /g, '').split(',');
 		    topics = topics.map(x => 'filter-'+x).join(' ');
+		    paperLink = paperData['Link to paper (include https://)']
+		    if (paperLink == "") {
+			paperLink = paperData['Link to preprint (include https://)']
+		    }
 		    var paper = $("<div class='col-lg-4 col-md-6 " + topics + "'>")
-		    	.append($("<div class='portfolio-item'>")
+		    	.append($("<div class='portfolio-item card'>")
 		    		.append("<img src='" + picture + "' class='img-fluid' alt=''>")
 		    		.append($("<div class='portfolio-info'>")
-		    			.append("<h3><a href='"+ picture + "' data-gall='portfolioGallery' class='venobox' title='" + title + "'>" + title + "</a></h3>")
-		    			.append($("<a href='" + picture + "' data-gall='portfolioGallery' class='venobox' title='" + title + "'>")
+		    			.append("<h3><a href='"+ paperLink + "' data-gall='portfolioGallery' class='venobox' title='" + title + "'>" + title + "</a></h3>")
+		    			.append($("<a href='" + paperLink + "' data-gall='portfolioGallery' class='venobox' title='" + title + "'>")
 		    				.append("<i class='icofont-plus'>"))
 		    		       )
 		    	       );
