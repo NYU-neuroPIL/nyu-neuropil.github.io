@@ -59,6 +59,9 @@ To do:
    this is probably fine as long as we document it and write up
    directions well, so probably ignore
 7. [ ] add directions for editing and updating
+8. [ ] fix on mobile:
+   - [ ] navbar not visible
+   - [ ] spacing doesn't look quite right
 
 # For local preview
 
