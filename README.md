@@ -47,18 +47,25 @@ To do:
    - FAQ: Katie, Chloe, etc
    - resources -- Ionatan
 4. [X] Change color palette -- Jenn
-5. [ ] Get photo for background -- Ionatan. should be ~1580 by 860
+5. [X] Get photo for background -- Ionatan. should be ~1580 by 860
        pixels, probably no text
-6. [ ] put mini logo on top banner
+6. [X] put mini logo on top banner
 6. [X] get logo -- Katie
 7. [ ] photo carousel with social photos from Google Drive (replace
        the charter picture)
-8. [ ] add committee info
+8. [X] add committee info
 8. [X] remove map at bottom
 9. [X] try and break up into separate html files -- Billy -- Actually,
    this is probably fine as long as we document it and write up
    directions well, so probably ignore
 7. [ ] add directions for editing and updating
+
+# For local preview
+
+In order to preview locally, you'll need to [setup a local testing
+server](https://docs.google.com/document/d/15pFbnUiX-Nd0Y1YtzD-uAFq6LWTmfCr239RbtlZluGc/edit#). Basically
+that just means having a basic Python 3 install, navigating to this
+directory, and running `python -m http.server`.
 
 # public pages
 
