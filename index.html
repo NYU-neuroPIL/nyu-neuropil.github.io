@@ -135,40 +135,14 @@
     // window.onload means we wait until the window loads. we do this
     // so that the #portfolio-container element has been created
     window.onload = init
+    $(function(){
+	$("#header").load("header.html"); 
+	$("#footer").load("footer.html"); 
+    });
   </script>
 
     <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container">
-
-      <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>NYU NeuroPIL</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <nav class="nav-menu float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#header">Home</a></li>
-          <li class="drop-down"><a href="">More Information</a>
-            <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#team">Executive Council</a></li>
-            </ul>
-          </li>
-          <li><a href="#portfolio">Publications</a></li>
-              <li class="drop-down"><a href="">Community Resources</a>
-                  <ul>
-                    <li><a href="#services">General</a></li>
-                    <li><a href="https://wp.nyu.edu/neuropil/">For students (internal)</a></li>
-                  </ul>
-          </li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-
-    </div>
-  </header><!-- End #header -->
+  <header id="header" class="fixed-top"></header>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -518,25 +492,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-
-      <div class="copyright">
-                            <p>This site was last updated <span id="demo"></span>.</p>
-    <script>
-    document.getElementById("demo").innerHTML = document.lastModified;
-    </script>
-        &copy; Copyright <strong><span>Amoeba</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End #footer -->
+  <footer id="footer"></footer><!-- End #footer -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
