@@ -1,4 +1,3 @@
-
 # NYU neuroPIL
 
 website for NYU neuroPIL
@@ -39,6 +38,7 @@ To do:
       - [ ] add extra tags (labs, techniques)
       - [ ] allow multi-select (both within and across?)
    - [ ] put limit on number that are displayed or scroll or something
+   - [X] add subtitle with author and year
    
 4. [X] Make contact form live -- Jenn
 2. [X] Embed Twitter feed -- waiting for twitter account
