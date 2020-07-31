@@ -62,6 +62,7 @@ To do:
 8. [ ] fix on mobile:
    - [ ] navbar not visible
    - [ ] spacing doesn't look quite right
+9. [ ] Add link to Github?
 
 # For local preview
 
