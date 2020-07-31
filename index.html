@@ -75,6 +75,17 @@
     .portfolio .portfolio-item:hover .portfolio-info {
 	top: unset;
     }
+   .portfolio .portfolio-item .portfolio-info h3 {
+       font-size: 1.5rem;
+       margin-left: .5rem;
+       margin-right: .5rem;
+   }
+   .portfolio .portfolio-item .portfolio-info h4 {
+       font-size: 1.25rem;
+       color: #ddd;
+       margin-left: .5rem;
+       margin-right: .5rem;
+   }
   </style>
 
   <!-- script to set up the publications -->
@@ -93,6 +104,7 @@
 	let SHEET_NAME = 'Form responses 1';
 	$.ajax({
 	    url: `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`,
+
 	    async: false,
 	    success: function (csvd) {
 		data = Papa.parse(Papa.unparse(JSON.parse(csvd).values), { header: true }).data;
@@ -101,6 +113,8 @@
 		// for each element in the data array...
 		data.forEach(function(paperData) {
 		    var title = paperData['Title of publication']
+        var firstAuthor = paperData['Authors '].split(',')[0]
+        var year = new Date(paperData['Timestamp']).getFullYear()
 		    var picture = paperData['Summary picture (~600 x 600 pixels)']
 		    picture = picture.replace("open?id=", "thumbnail?id=");
 		    // create a new div. right now this copies directly the
@@ -119,10 +133,10 @@
 		    	.append($("<div class='portfolio-item card'>")
 		    		.append("<img src='" + picture + "' class='img-fluid' alt=''>")
 		    		.append($("<div class='portfolio-info'>")
-		    			.append("<h3><a href='"+ paperLink + "' target='_blank' rel='noopener noreferrer'>" + title + "</a></h3>")
+		    			  .append("<h3><a href='"+ paperLink + "' target='_blank' rel='noopener noreferrer'>" + title + "</a></h3>")
+                .append("<h4>" + firstAuthor + " et al., " + year + "</h4>")
 		    			.append($("<a href='" + paperLink + "' target='_blank' rel='noopener noreferrer'>")
-		    				.append("<i class='icofont-plus'>"))
-		    		       )
+		    		       ))
 		    	       );
 		    // and append to the portfolio container (the '#id' syntax
 		    // means we're grabbing it by id)
