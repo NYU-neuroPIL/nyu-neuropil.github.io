@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Applications FAQs</title>
+        <meta content="" name="descriptison">
+        <meta content="" name="keywords">
+
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Lato:400,300,700,900" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+
+        <!-- jquery -->
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/js/jquery-csv.js"></script>
+        <script src="assets/js/papaparse.min.js"></script>
+        <!-- =======================================================
+             * Template Name: Amoeba - v2.0.0
+             * Template URL: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/
+             * Author: BootstrapMade.com
+             * License: https://bootstrapmade.com/license/
+             ======================================================== -->
+    </head>
+    <script>
+     // load the data into a javascript object called `data`. Each
+     // entry (index into like `data[0]`) is a separate paper, with the
+     // data stored in named fields (e.g., `data[0].Topics` or
+     // `data[0]['Title of publication']`)
+     var data;
+     function init() {
+         // load the data into a javascript object called `data`. Each
+         // entry (index into like `data[0]`) is a separate paper, with the
+         // data stored in named fields (e.g., `data[0].title`)
+         let SHEET_ID = '1t2ruBzuom-9EhSb6YIMXFETrx0PvZsfQts-WLkPN9LY';
+         let API_KEY = 'AIzaSyDzueIbUHdX6wBHbbW98UqBuWLVMVeQto8';
+         let SHEET_NAME = 'FAQs';
+         $.ajax({
+             url: `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`,
+
+             async: false,
+             success: function (csvd) {
+                 data = Papa.parse(Papa.unparse(JSON.parse(csvd).values), { header: true }).data;
+                 // data = $.csv.toObjects(csvd);
+                 // for each element in the data array...
+                 data.forEach(function(faqs) {
+                     var qa = $("<h3>" + faqs['Question'] + "</h3><p>" + faqs['Answer'] + "</p>")
+                     // and append to the faqs container (the '#id' syntax
+                     // means we're grabbing it by id)
+                     $("#application-faqs").append(qa);
+                     console.log(qa)
+                 })
+             },
+             dataType: "text",
+         });
+     }
+     // window.onload means we wait until the window loads. we do this
+     // so that the #portfolio-container element has been created
+     window.onload = init
+     $(function(){
+         $("#header").load("header.html");
+         $("#footer").load("footer.html");
+     });
+    </script>
+    <style>
+     .faq {
+         padding: 100px 0;
+     }
+     .faq ul {
+         list-style: disc;
+     }
+     .faq .faq-list li {
+         padding: 0 0 5px 0;
+     }
+    </style>
+    <body>
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top"></header>
+
+        <section id="faqs" class="faq">
+            <div class="section-title">
+                <h2>NYU Neuroscience Application FAQs</h2>
+            </div>
+            <div class="container">
+                <p>Applying to grad school is intimidating! Here are a list of
+                    frequently asked questions that we have gotten about applying to the
+                    NYU Neuroscience PhD program. If you have additional questions, please
+                    contact <a href="index.html#contact">us!</a></p>
+                <div class='container' id='application-faqs'>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer"></footer><!-- End #footer -->
+
+        <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/venobox/venobox.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
