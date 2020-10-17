@@ -57,12 +57,16 @@
                  data = Papa.parse(Papa.unparse(JSON.parse(csvd).values), { header: true }).data;
                  // data = $.csv.toObjects(csvd);
                  // for each element in the data array...
+                 i = 1
                  data.forEach(function(faqs) {
                      var qa = $("<h3>" + faqs['Question'] + "</h3><p>" + faqs['Answer'] + "</p>")
+                     var qa = $("<li>")
+                         .append("<a data-toggle='collapse' class='question collapsed' href='#appl-faq" +i.toString()+"'>" + faqs['Question'] + "<i class='icofont-simple-up'></i></a>")
+                         .append("<div id='appl-faq"+i.toString()+"' class='collapse' data-parent='.faq-list'><p>" + faqs['Answer'] + "</p>")
                      // and append to the faqs container (the '#id' syntax
                      // means we're grabbing it by id)
                      $("#application-faqs").append(qa);
-                     console.log(qa)
+                     i = i+1
                  })
              },
              dataType: "text",
@@ -101,8 +105,8 @@
                     frequently asked questions that we have gotten about applying to the
                     NYU Neuroscience PhD program. If you have additional questions, please
                     contact <a href="index.html#contact">us!</a></p>
-                <div class='container' id='application-faqs'>
-                </div>
+                <ul class='faq-list' id='application-faqs'>
+                </ul>
             </div>
         </section>
 
