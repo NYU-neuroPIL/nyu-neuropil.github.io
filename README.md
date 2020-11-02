@@ -1,4 +1,5 @@
-See [here](https://nyu-neuropil.github.io/) for website.
+**NOTE**: this is the github repository for the website, to see the website
+itself, go to [nyu-neuropil.github.io](https://nyu-neuropil.github.io/).
 
 # NYU neuroPIL
 
