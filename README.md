@@ -1,4 +1,4 @@
-See [here](nyu-neuropil.github.io/) for website.
+See [here](https://nyu-neuropil.github.io/) for website.
 
 # NYU neuroPIL
 
