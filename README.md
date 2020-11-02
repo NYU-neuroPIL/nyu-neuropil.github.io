@@ -1,3 +1,5 @@
+See [here](nyu-neuropil.github.io/) for website.
+
 # NYU neuroPIL
 
 website for NYU neuroPIL
