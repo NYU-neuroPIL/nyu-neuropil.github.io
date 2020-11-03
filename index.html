@@ -13,6 +13,12 @@
         <link href="assets/img/favicon.png" rel="icon">
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+        <!-- academicons, https://jpswalsh.github.io/academicons/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+        <!-- Font Awesome, https://fontawesome.com/start -->
+        <script src="https://use.fontawesome.com/58ece8dec6.js"></script>
+
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Lato:400,300,700,900" rel="stylesheet">
 
@@ -129,8 +135,11 @@
                          topics = paperData['Topics'].replace(/ /g, '').split(',');
                          topics = topics.map(x => 'filter-'+x).join(' ');
                          paperLink = paperData['Link to paper (include https://)']
+                         icons = $("<p class='pub-links'>")
                          if (paperLink == "") {
                              paperLink = paperData['Link to preprint (include https://)']
+                         } else {
+                             icons.append("<a href='" + paperLink + "' target='_blank' rel='noopener noreferrer'> <i class='fas fa-link'></i></a>")
                          }
                          var paper = $("<div class='col-lg-4 col-md-6 " + topics + "'>")
                              .append($("<div class='portfolio-item card'>")
@@ -138,6 +147,7 @@
                                  .append($("<div class='portfolio-info'>")
                                      .append("<h3><a href='"+ paperLink + "' target='_blank' rel='noopener noreferrer'>" + title + "</a></h3>")
                                      .append("<h4>" + firstAuthor + " et al., " + year + "</h4>")
+                                     .append(icons)
                                  )
                              );
                          // and append to the portfolio container (the '#id' syntax
