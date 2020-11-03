@@ -95,6 +95,13 @@
              margin-left: .5rem;
              margin-right: .5rem;
          }
+         i {
+             font-family: 'FontAwesome';
+             font-style: normal;
+         }
+         .portfolio .portfolio-item .portfolio-info a i {
+             color: #ddd;
+         }
         </style>
 
         <!-- script to set up the publications -->
@@ -104,6 +111,8 @@
          // data stored in named fields (e.g., `data[0].Topics` or
          // `data[0]['Title of publication']`)
          var data;
+
+
          function init() {
              // load the data into a javascript object called `data`. Each
              // entry (index into like `data[0]`) is a separate paper, with the
@@ -135,12 +144,24 @@
                          topics = paperData['Topics'].replace(/ /g, '').split(',');
                          topics = topics.map(x => 'filter-'+x).join(' ');
                          paperLink = paperData['Link to paper (include https://)']
-                         icons = $("<p class='pub-links'>")
                          if (paperLink == "") {
                              paperLink = paperData['Link to preprint (include https://)']
-                         } else {
-                             icons.append("<a href='" + paperLink + "' target='_blank' rel='noopener noreferrer'> <i class='fas fa-link'></i></a>")
                          }
+                         var icons = $("<p class='pub-links'>")
+                         var iconLinks = ['Link to paper (include https://)', 'Link to preprint (include https://)',
+                                          'Link to code (include https://)', 'Link to data (include https://)']
+                         var iconNames = ['fa-link', 'ai-biorxiv', 'fa-code|fab-github', 'fa-server']
+                         var iconVals = iconLinks.map(function(link, index) {
+                             if (paperData[link]) {
+                                 return iconLink(paperData[link], iconNames[index])
+                             } else {
+                                 return ""
+                             }})
+                         console.log(iconVals)
+                         iconVals.forEach(function(ic) {
+                             if (ic) {
+                                 icons.append(ic)
+                         }})
                          var paper = $("<div class='col-lg-4 col-md-6 " + topics + "'>")
                              .append($("<div class='portfolio-item card'>")
                                  .append("<img src='" + picture + "' class='img-fluid' alt=''>")
@@ -157,6 +178,24 @@
                  },
                  dataType: "text",
              });
+         }
+         function iconLink(link, icon) {
+             poss_icons = icon.split("|").slice(1)
+             icon = icon.split("|")[0]
+             poss_icons.forEach(function(i) {
+                 if (link.includes(i.split('-')[1])) {
+                     icon = i
+                 }
+             })
+             if (icon.startsWith('fa-')) {
+                 iconClass = 'fas'
+             } else if (icon.startsWith('fab-')) {
+                 iconClass = 'fab'
+                 icon = icon.replace('fab-', 'fa-')
+             } else {
+                 iconClass = 'ai'
+             }
+             return "<a href='" + link + "' target='_blank' rel='noopener noreferrer'> <i class='" + iconClass + " " + icon + "'></i></a>"
          }
          // window.onload means we wait until the window loads. we do this
          // so that the #portfolio-container element has been created
