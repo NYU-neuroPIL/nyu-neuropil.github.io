@@ -66,6 +66,8 @@ To do:
    - [ ] navbar not visible
    - [ ] spacing doesn't look quite right
 9. [ ] Add link to Github?
+9. [ ] get shorter text for about us and put centered, right under "about us",
+       and above photo carousel and twitter feed
 
 # For local preview
 
