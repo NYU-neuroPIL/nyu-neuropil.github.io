@@ -35,7 +35,7 @@ To do:
              on the Sheet so that anyone with the link can access)
    - [X] get text centered
    - [X] make link go to paper or preprint
-   - [ ] redo format to use cards, add icons for different links
+   - [X] redo format to use cards, add icons for different links
    - [ ] longer-term goal: click on card and get a mini-blog post
    - [ ] tagging:
       - [ ] add extra tags (labs, techniques)
